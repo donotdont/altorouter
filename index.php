@@ -11,13 +11,19 @@ $router->map( 'GET', '/', function() {
 	require __DIR__ . '/views/home.php';
 });
 
+$router->map( 'GET', '/home/[a:action]', function($action) {
+	require __DIR__ . '/views/home.php';
+	echo '<pre><br />';
+	var_dump($action);
+});
+
 // map user details page
 /*$router->map( 'GET', '/user/[i:id]/', function( $id ) {
 	require __DIR__ . '/views/user-details.php';
 });*/
 
 //$router->map('GET','/', 'views/home.php', 'home');
-$router->map('GET','/home/', 'views/home.php', 'home-home');
+//$router->map('GET','/home/[i:id]', 'views/home.php', 'home-home');
 $router->map('GET','/plans/', 'plans.php', 'plans');
 $router->map('GET','/about/', 'about.php', 'about');
 $router->map('GET','/contact/', 'contact.php', 'contact');
